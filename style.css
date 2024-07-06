@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+:root {
+    --text-color: #f5f5f5;
+    --hover-color: #12f7ff;
+    --bg-color: #250821;
+    --secon-bg-color: #292e33;
+    --big-font: 2.5rem;
+    --normal-font: 2rem;
+    --neon-box-shadow: 0 0.5rem #12f7ff;
+    --h2-font: 3rem;
+    --font-neon-text-shadow: 0 0 0.5rem #12f7ff, 
+                            0 0 10px rgba(18, 247, 255, 0.3),
+                            0 0 20px rgba(18, 247, 255, 0.3),
+                            0 0 30px rgba(18, 247, 255, 0.3),
+                            0 0 40px rgba(18, 247, 255, 0.3),
+                            0 0 50px rgba(18, 247, 255, 0.3),
+                            0 0 60px rgba(18, 247, 255, 0.3),
+                            0 0 70px rgba(18, 247, 255, 0.3),
+                            0 0 80px rgba(18, 247, 255, 0.3),
+                            0 0 100px rgba(18, 247, 255, 0.3),
+                            0 0 150px rgba(18, 247, 255, 0.3);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 10%;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+span {
+    color: var(--hover-color);
+}
+
+.navlist {
+    display: flex;
+}
+
+.navlist a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 10px 20px;
+}
+
+.navlist a:hover {
+    color: var(--hover-color);
+    text-shadow: 0 0 0.5rem #12f7ff, 
+                 0 0 10px rgba(18, 247, 255, 0.6),
+                 0 0 20px rgba(18, 247, 255, 0.6),
+                 0 0 30px rgba(17, 206, 212, 0.6),
+                 0 0 40px rgba(18, 247, 255, 0.6),
+                 0 0 50px rgba(18, 247, 255, 0.6),
+                 0 0 60px rgba(18, 247, 255, 0.6),
+                 0 0 70px rgba(18, 247, 255, 0.6),
+                 0 0 80px rgba(18, 247, 255, 0.6),
+                 0 0 100px rgba(18, 247, 255, 0.6),
+                 0 0 150px rgba(18, 247, 255, 0.6);
+}
+
+#menu-icon {
+    font-size: 1.8rem;
+    z-index: 10001;
+    cursor: pointer;
+    margin-left: 25px;
+    background: var(--hover-color);
+    border-radius: 3px;
+    color: var(--secon-bg-color);
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navlist {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+    }
+    .navlist.active {
+        display: flex;
+    }
+    #menu-icon {
+        display: block;
+    }
+}
+
+section {
+    padding: 100px 10%;
+}
+
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-content {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+.home-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content h1 {
+    font-size: var(--big-font);
+    font-weight: 700;
+}
+
+.change-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    height: 2rem;
+}
+
+.change-text h3 {
+    display: inline-flex;
+    margin: 0;
+    vertical-align: top;
+    position: relative;
+}
+
+.change-text h3 .word {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.change-text h3 .word.in {
+    opacity: 1;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fall 0.5s forwards;
+}
+
+.home-image .img-box {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 400% 400%;
+    animation: rainbow 2s linear infinite;
+}
+
+.home-image .img-box img {
+    display: block;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.change-text h3 .word .letter.out {
+    transform: rotateX(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+}
+
+.change-text h3 .word .letter.in {
+    transition: 0.38s ease;
+}
+
+.home-content {
+    color: #bdbdbd;
+    line-height: 1.6;
+}
+
+.info-box {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 1rem 0 2rem;
+}
+
+.info-box h5 {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.info-box span {
+    font-size: 0.9rem;
+    color: #bdbdbd;
+}
+
+.btn-box {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-box a.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    background: var(--hover-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.6s;
+    box-shadow: var(--neon-box-shadow);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px solid var(--hover-color);
+}
+
+a.btn:hover {
+    color: var(--hover-color);
+}
+
+a.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--bg-color);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: 0.4s;
+}
+
+a.btn:hover::before {
+    width: 0;
+}
+
+a.btn:nth-child(2) {
+    background: var(--bg-color);
+    color: var(--hover-color);
+}
+
+a.btn:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+a.btn:nth-child(2)::before {
+    background: var(--hover-color);
+}
+
+.social-icons {
+    margin-top: 8rem;
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background: var(--bg-color);
+    color: var(--hover-color);
+    border-radius: 50%;
+    box-shadow: var(--neon-box-shadow);
+    transition: 0.4s;
+}
+
+.social-icons a:hover {
+    transform: rotate(360deg);
+}
+
+.section-title {
+    font-size: var(--h2-font);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: var(--hover-color);
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: var(--secon-bg-color);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 2s;
+}
+
+@keyframes widthChange90 {
+    from {
+        width: 0%;
+    }  
+    to {
+        width: 90%;
+    }
+}
+@keyframes widthChange85 {
+    from {
+        width: 0%;
+    }  
+    to {
+        width: 85%;
+    }
+}
+@keyframes widthChange80 {
+    from {
+        width: 0%;
+    }  
+    to {
+        width: 80%;
+    }
+}
+@keyframes widthChange75 {
+    from {
+        width: 0%;
+    }  
+    to {
+        width: 75%;
+    }
+}
+@keyframes widthChange70 {
+    from {
+        width: 0%;
+    }  
+    to {
+        width: 70%;
+    }
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    transition: width 2s ease-in-out;
+    animation-delay: 4s; /* Add this line to set a 4-second delay before the animation starts */
+}
+
+.progress[data-skill="90"] {
+    background: #33FFD7; /* Green */
+    animation: widthChange90 forwards;
+    animation-duration: 2s;
+    animation-delay: 4s; /* Add this line to set a 4-second delay before the animation starts */
+}
+
+.progress[data-skill="85"] {
+    background: #33FFD7; /* Light Green */
+    animation: widthChange85 forwards;
+    animation-duration: 2s;
+    animation-delay: 4s; /* Add this line to set a 4-second delay before the animation starts */
+}
+
+.progress[data-skill="80"] {
+    background: #33FFD7; /* Yellow */
+    animation: widthChange80 forwards;
+    animation-duration: 2s;
+    animation-delay: 4s; /* Add this line to set a 4-second delay before the animation starts */
+}
+
+.progress[data-skill="75"] {
+    background: #33FFD7; /* Orange */
+    animation: widthChange75 forwards;
+    animation-duration: 2s;
+    animation-delay: 4s; /* Add this line to set a 4-second delay before the animation starts */
+}
+
+.progress[data-skill="70"] {
+    background: #33FFD7; /* Deep Orange */
+    animation: widthChange70 forwards;
+    animation-duration: 2s;
+    animation-delay: 4s; /* Add this line to set a 4-second delay before the animation starts */
+}
+
+.contact {
+    padding: 100px 10%;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.info-item h5 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.info-item span {
+    font-size: 1rem;
+    color: #bdbdbd;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: var(--secon-bg-color);
+    color: var(--text-color);
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--hover-color);
+}
+
+.contact-form button.btn {
+    background: var(--hover-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button.btn:hover {
+    background: #00c853;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
